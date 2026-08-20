@@ -28,10 +28,11 @@ const faqData = [
   },
 ];
 
-export default function FAQsection() {
-  const [openIndexes, setOpenIndexes] = useState([]);
 
-  const toggle = (index) => {
+export default function FAQsection() {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+  const toggle = (index: number) => {
     setOpenIndexes((prev) =>
       prev.includes(index)
         ? prev.filter((i) => i !== index)
@@ -71,7 +72,6 @@ export default function FAQsection() {
                 }
               `}
             >
-              {/* Question */}
               <div className="flex min-h-[75px] items-center justify-between bg-black px-6 py-4 font-semibold text-white">
                 <strong>{item.question}</strong>
 
@@ -80,7 +80,6 @@ export default function FAQsection() {
                 </span>
               </div>
 
-              {/* Answer */}
               {isOpen && (
                 <div className="bg-[#00b2e3] px-6 py-4 text-[0.95rem] text-black">
                   <p>{item.answer}</p>
