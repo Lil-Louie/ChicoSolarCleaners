@@ -36,7 +36,7 @@ export default function Hero() {
 
         {/* Call button */}
         <a
-          href="tel:+15305551234"
+          href="tel:+17078907349"
           className="mt-5 rounded border border-white px-6 py-4 font-bold transition hover:bg-white hover:text-black"
         >
           Contact Us Now!
