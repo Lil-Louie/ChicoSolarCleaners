@@ -1,4 +1,6 @@
 import useIsMobile from "@/app/component/useIsMobile";  
+import Image from "next/image";
+import Logo from "@/public/Logo_1.png";
 
 export default function Footer() {
   const isMobile = useIsMobile();
@@ -9,8 +11,15 @@ export default function Footer() {
 
         {isMobile ? (
           <>                   {/* Mobile Vew */}
-            <a href="/" className="footer-logo text-white py-2 px-4" aria-label="Go to homepage">
-               <h2>Chico Solar Cleaners</h2>
+            <a href="/" className="Chico-logo" aria-label="Go to homepage">
+              <Image
+                src={Logo}
+                alt="Chico Solar Cleaners"
+                width={440}
+                height={200}
+                priority
+                className="h-auto w-[180px] md:w-[220px] mx-5"
+              />
             </a>
 
             <div className="footer-contact text-white">
@@ -36,8 +45,15 @@ export default function Footer() {
           </>
         ) : (
           <>               {/* Desktop Vew */}
-            <a href="/" className="footer-logo text-white py-2 px-4" aria-label="Go to homepage">
-               <h2>Chico Solar Cleaners</h2>
+            <a href="/" className="Chico-logo" aria-label="Go to homepage">
+              <Image
+                src={Logo}
+                alt="Chico Solar Cleaners"
+                width={440}
+                height={200}
+                priority
+                className="h-auto w-[180px] md:w-[220px] mx-5"
+              />
             </a>
 
             <div className="footer-contact text-white">
