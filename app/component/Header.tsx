@@ -11,7 +11,7 @@ export default function Header() {
 
         <div className="navbar-right m-5 text-white rounded py-2 px-4 bg-blue-500">
           <a href="tel:+17078907349" className="call-button">
-            Click here to call (707) 890-7349
+            Call Now!
           </a>
         </div>
 
