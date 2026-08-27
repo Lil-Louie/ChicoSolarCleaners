@@ -1,24 +1,31 @@
 "use client";
 
+import Image from "next/image";
 import HeroBackground from "@/public/carouselPhotos/Car_2.jpeg";
 import { motion } from "motion/react";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[calc(100vh-105px)] items-center justify-center overflow-hidden">
-      {/* Animated Background */}
+      {/* Optimized Animated Background */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${HeroBackground.src})`,
-        }}
+        className="absolute inset-0"
         initial={{ scale: 1.06 }}
         animate={{ scale: 1 }}
         transition={{
           duration: 1.1,
           ease: "easeOut",
         }}
-      />
+      >
+        <Image
+          src={HeroBackground}
+          alt="Solar panels being professionally cleaned"
+          fill
+          preload
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-slate-700/45" />
