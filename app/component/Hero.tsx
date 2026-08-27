@@ -1,48 +1,136 @@
-import Image from "next/image";
-import logo from "@/public/images/logo.png";
-import HeroBackground from "@/public/photos/IMG_0068.jpeg";
+"use client";
+
+import HeroBackground from "@/public/CarouselPhotos/Car_2.jpeg";
+import { motion } from "motion/react";
 
 export default function Hero() {
   return (
-<section
-  className="relative flex min-h-[calc(100vh-105px)] items-center justify-center bg-cover bg-center"
-  style={{
-    backgroundImage: `url(${HeroBackground.src})`,
-  }}
->
+    <section className="relative flex min-h-[calc(100vh-105px)] items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${HeroBackground.src})`,
+        }}
+        initial={{ scale: 1.06 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 1.1,
+          ease: "easeOut",
+        }}
+      />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-slate-700/45" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-14 text-center text-white">
-        {/* Logo */}
-        <div className="mb-6 w-full max-w-[850px] bg-white shadow-sm ">
-        </div>
-
+      <motion.div
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-14 text-center text-white"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.1,
+              delayChildren: 0.1,
+            },
+          },
+        }}
+      >
         {/* Welcome */}
-        <h2 className="text-4xl font-bold tracking-[0.12em] drop-shadow-md md:text-6xl">
+        <motion.h2
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 25,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.45,
+                ease: "easeOut",
+              },
+            },
+          }}
+          className="text-4xl font-bold tracking-[0.12em] drop-shadow-md md:text-6xl"
+        >
           WELCOME TO
-        </h2>
+        </motion.h2>
 
-        {/* Business name */}
-        <h1 className="mt-4 text-5xl font-extrabold tracking-[0.08em] drop-shadow-md md:text-7xl">
+        {/* Business Name */}
+        <motion.h1
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 30,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+                ease: "easeOut",
+              },
+            },
+          }}
+          className="mt-4 text-5xl font-extrabold tracking-[0.08em] drop-shadow-md md:text-7xl"
+        >
           CHICO SOLAR CLEANERS
-        </h1>
+        </motion.h1>
 
         {/* Description */}
-        <p className="mt-8 max-w-4xl text-lg font-semibold italic leading-relaxed drop-shadow md:text-2xl">
+        <motion.p
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 20,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.45,
+                ease: "easeOut",
+              },
+            },
+          }}
+          className="mt-8 max-w-4xl text-lg font-semibold italic leading-relaxed drop-shadow md:text-2xl"
+        >
           We have 3 years of experience in cleaning solar panels and windows!
-        </p>
+        </motion.p>
 
-        {/* Call button */}
-        <a
+        {/* Call Button */}
+        <motion.a
           href="tel:+17078907349"
-          className="mt-5 rounded border border-white px-6 py-4 font-bold transition hover:bg-white hover:text-black"
+          variants={{
+            hidden: {
+              opacity: 0,
+              scale: 0.94,
+              y: 15,
+            },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              transition: {
+                duration: 0.4,
+                ease: "easeOut",
+              },
+            },
+          }}
+          whileHover={{
+            scale: 1.05,
+          }}
+          whileTap={{
+            scale: 0.97,
+          }}
+          className="mt-5 rounded border border-white px-6 py-4 font-bold transition-colors hover:bg-white hover:text-black"
         >
           Contact Us Now!
-        </a>
-
-      </div>
+        </motion.a>
+      </motion.div>
     </section>
   );
 }

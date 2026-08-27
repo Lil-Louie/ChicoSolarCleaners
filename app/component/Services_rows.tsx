@@ -1,23 +1,55 @@
+"use client";
+
 import Image from "next/image";
-import WindowPhoto from "@/public/photos/IMG_3279.jpeg";
-import PanelPhoto from "@/public/photos/IMG_0064.jpeg";
-import BirdProofing from "@/public/images/BirdProofing.jpeg"
+import WindowPhoto from "@/public/CarouselPhotos/Car_6.jpeg";
+import PanelPhoto from "@/public/CarouselPhotos/Car_1.jpeg";
+import BirdProofing from "@/public/images/BirdProofing.jpeg";
+import { motion } from "motion/react";
 
 export default function Services() {
   return (
     <section
       id="pricing"
-      className="bg-black px-6 py-12 md:px-8"
+      className="overflow-hidden bg-black px-6 py-12 md:px-8"
     >
-      <h1 className="mb-8 text-center text-3xl font-bold text-[#00b2e3]">
+      {/* Section Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{
+          duration: 0.45,
+          ease: "easeOut",
+        }}
+        className="mb-8 text-center text-3xl font-bold text-[#00b2e3]"
+      >
         Services
-      </h1>
+      </motion.h1>
 
       <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
         {/* Solar Panel Cleaning */}
-        <div className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.55,
+            ease: "easeOut",
+          }}
+          className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
+        >
           {/* Text */}
-          <div className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10">
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.08,
+              ease: "easeOut",
+            }}
+            className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10"
+          >
             <h3 className="mb-4 text-[1.7rem] font-bold text-[#00b2e3]">
               Expert Residential Solar Panel Cleaning
             </h3>
@@ -37,23 +69,76 @@ export default function Services() {
               <br />
               <strong>Two Story Home:</strong> $175 (Up to 20 panels)
             </p>
-          </div>
+          </motion.div>
 
           {/* Image */}
-          <div className="relative h-[320px] w-full md:h-auto md:w-1/2">
-            <Image
-              src={PanelPhoto}
-              alt="Solar Panel Cleaning"
-              fill
-              className="object-cover"
-            />
+          <div className="relative h-[320px] w-full overflow-hidden md:h-auto md:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05, x: 25 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.08,
+                ease: "easeOut",
+              }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={PanelPhoto}
+                alt="Solar Panel Cleaning"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bird Proofing */}
-        <div className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.55,
+            ease: "easeOut",
+          }}
+          className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
+        >
+          {/* Image - first on desktop */}
+          <div className="relative h-[320px] w-full overflow-hidden md:order-1 md:h-auto md:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05, x: -25 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.08,
+                ease: "easeOut",
+              }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={BirdProofing}
+                alt="Bird Proofing"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+
           {/* Text */}
-          <div className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10">
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.08,
+              ease: "easeOut",
+            }}
+            className="flex flex-col justify-center p-6 text-center md:order-2 md:w-1/2 md:p-10"
+          >
             <h3 className="mb-4 text-[1.7rem] font-bold text-[#00b2e3]">
               Solar Panel Bird Proofing
             </h3>
@@ -76,23 +161,32 @@ export default function Services() {
             <p className="text-[1.1rem] text-black">
               <strong>*Prices Starting at $6.50 Per Linear Foot</strong>
             </p>
-          </div>
-
-          {/* Image */}
-          <div className="relative h-[320px] w-full md:h-auto md:w-1/2">
-            <Image
-              src={BirdProofing}
-              alt="Bird Proofing"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Window Cleaning */}
-        <div className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.55,
+            ease: "easeOut",
+          }}
+          className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
+        >
           {/* Text */}
-          <div className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10">
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.08,
+              ease: "easeOut",
+            }}
+            className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10"
+          >
             <h3 className="mb-4 text-[1.7rem] font-bold text-[#00b2e3]">
               Window Cleaning
             </h3>
@@ -106,18 +200,30 @@ export default function Services() {
             <p className="text-[1.1rem] text-black">
               <strong>Call to get an estimate</strong>
             </p>
-          </div>
+          </motion.div>
 
           {/* Image */}
-          <div className="relative h-[320px] w-full md:h-auto md:w-1/2">
-            <Image
-              src={WindowPhoto}
-              alt="Window Cleaning"
-              fill
-              className="object-cover"
-            />
+          <div className="relative h-[320px] w-full overflow-hidden md:h-auto md:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05, x: 25 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.08,
+                ease: "easeOut",
+              }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={WindowPhoto}
+                alt="Window Cleaning"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 const faqData = [
   {
@@ -28,7 +31,6 @@ const faqData = [
   },
 ];
 
-
 export default function FAQsection() {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
@@ -41,10 +43,20 @@ export default function FAQsection() {
   };
 
   return (
-    <section className="bg-white px-8 py-16">
-      <h1 className="text-center text-3xl font-bold text-[#00b2e3]">
+    <section className="overflow-hidden bg-white px-8 py-16">
+      {/* Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{
+          duration: 0.45,
+          ease: "easeOut",
+        }}
+        className="text-center text-3xl font-bold text-[#00b2e3]"
+      >
         Frequently Asked Questions
-      </h1>
+      </motion.h1>
 
       <div className="mx-auto grid max-w-[1500px] grid-cols-1 items-start gap-8 px-4 py-8 md:grid-cols-2">
         {faqData.map((item, index) => {
@@ -55,8 +67,30 @@ export default function FAQsection() {
           const isOpen = openIndexes.includes(index);
 
           return (
-            <div
+            <motion.div
               key={index}
+              initial={{
+                opacity: 0,
+                y: 30,
+                x: index % 2 === 0 ? -20 : 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.06,
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.01,
+              }}
               onClick={() => toggle(index)}
               className={`
                 flex min-h-[75px] w-full self-start cursor-pointer flex-col
@@ -72,20 +106,61 @@ export default function FAQsection() {
                 }
               `}
             >
+              {/* Question */}
               <div className="flex min-h-[75px] items-center justify-between bg-black px-6 py-4 font-semibold text-white">
                 <strong>{item.question}</strong>
 
-                <span className="ml-4 shrink-0">
-                  {isOpen ? "▲" : "▼"}
-                </span>
+                <motion.span
+                  animate={{
+                    rotate: isOpen ? 180 : 0,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                    ease: "easeOut",
+                  }}
+                  className="ml-4 shrink-0"
+                >
+                  ▼
+                </motion.span>
               </div>
 
-              {isOpen && (
-                <div className="bg-[#00b2e3] px-6 py-4 text-[0.95rem] text-black">
-                  <p>{item.answer}</p>
-                </div>
-              )}
-            </div>
+              {/* Answer */}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      height: "auto",
+                      opacity: 1,
+                    }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="overflow-hidden bg-[#00b2e3] text-black"
+                  >
+                    <motion.div
+                      initial={{ y: -8 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: -8 }}
+                      transition={{
+                        duration: 0.25,
+                      }}
+                      className="px-6 py-4 text-[0.95rem]"
+                    >
+                      <p>{item.answer}</p>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           );
         })}
       </div>

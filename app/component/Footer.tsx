@@ -1,82 +1,73 @@
-import useIsMobile from "@/app/component/useIsMobile";  
 import Image from "next/image";
 import Logo from "@/public/Logo_1.png";
 
 export default function Footer() {
-  const isMobile = useIsMobile();
-
   return (
-    <footer className="footer ">
-      <div className="footer-content flex justify-between items-center w-full border bg-black py-5 px-5">
+    <footer className="w-full bg-black text-white">
+      <div
+        className="
+          flex flex-col
+          items-center
+          gap-5
+          px-5
+          py-8
+          md:flex-row
+          md:justify-between
+          md:gap-8
+        "
+      >
+        {/* Logo */}
+        <a href="/" aria-label="Go to homepage">
+          <Image
+            src={Logo}
+            alt="Chico Solar Cleaners"
+            width={440}
+            height={200}
+            className="h-auto w-[220px] md:w-[250px]"
+          />
+        </a>
 
-        {isMobile ? (
-          <>                   {/* Mobile Vew */}
-            <a href="/" className="Chico-logo" aria-label="Go to homepage">
-              <Image
-                src={Logo}
-                alt="Chico Solar Cleaners"
-                width={440}
-                height={200}
-                priority
-                className="h-auto w-[180px] md:w-[220px] mx-5"
-              />
+        {/* Contact */}
+        <div className="text-center md:text-left">
+          <h3 className="mb-1 text-xl font-semibold">
+            Contact Us
+          </h3>
+
+          <p className="text-base">
+            <a
+              href="mailto:lgalvez1998@yahoo.com"
+              className="hover:text-blue-400"
+            >
+              lgalvez1998@yahoo.com
             </a>
+          </p>
 
-            <div className="footer-contact text-white">
-              <h3>Contact Us</h3>
-              <p>
-                <a href="mailto:lgalvez1998@yahoo.com">
-                  lgalvez1998@yahoo.com
-                </a>
-              </p>
-              <p>
-                <a href="tel:+17078907349">(707) 890-7349</a>
-              </p>
-            </div>
-
-            <div className="footer-social">
-              <a
-                href="https://www.facebook.com/solanosolarcleaning/"
-                aria-label="Facebook"
-                className="social-icon"
-              ></a>
-              <a href="#" aria-label="Instagram" className="social-icon"></a>
-            </div>
-          </>
-        ) : (
-          <>               {/* Desktop Vew */}
-            <a href="/" className="Chico-logo" aria-label="Go to homepage">
-              <Image
-                src={Logo}
-                alt="Chico Solar Cleaners"
-                width={440}
-                height={200}
-                priority
-                className="h-auto w-[180px] md:w-[220px] mx-5"
-              />
+          <p className="text-base">
+            <a
+              href="tel:+17078907349"
+              className="hover:text-blue-400"
+            >
+              (707) 890-7349
             </a>
+          </p>
+        </div>
 
-            <div className="footer-contact text-white">
-              <h3>Contact Us</h3>
-              <p>
-                <a href="mailto:lgalvez1998@yahoo.com">
-                  lgalvez1998@yahoo.com
-                </a>
-              </p>
-              <p>
-                <a href="tel:+17078907349">(707) 890-7349</a>
-              </p>
-            </div>
-
-            <div className="navbar-right m-5 text-white rounded py-2 px-4 bg-blue-500">
-              <a href="tel:+17078907349" className="call-button">
-                Call Now!
-              </a>
-            </div>
-
-          </>
-        )}
-
+        {/* Call Button */}
+        <a
+          href="tel:+17078907349"
+          className="
+            rounded
+            bg-blue-500
+            px-6
+            py-3
+            font-semibold
+            text-white
+            transition
+            hover:bg-blue-600
+          "
+        >
+          Call Now!
+        </a>
       </div>
     </footer>
   );
