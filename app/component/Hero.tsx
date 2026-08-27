@@ -1,6 +1,6 @@
 "use client";
 
-import HeroBackground from "@/public/CarouselPhotos/Car_2.jpeg";
+import HeroBackground from "@/public/carouselPhotos/Car_2.jpeg";
 import { motion } from "motion/react";
 
 export default function Hero() {

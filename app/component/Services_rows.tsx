@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import WindowPhoto from "@/public/CarouselPhotos/Car_6.jpeg";
-import PanelPhoto from "@/public/CarouselPhotos/Car_1.jpeg";
+import WindowPhoto from "@/public/carouselPhotos/Car_6.jpeg";
+import PanelPhoto from "@/public/carouselPhotos/Car_1.jpeg";
 import BirdProofing from "@/public/images/BirdProofing.jpeg";
 import { motion } from "motion/react";
 
