@@ -7,7 +7,6 @@ import { motion } from "motion/react";
 export default function Hero() {
   return (
     <section className="relative flex min-h-[calc(100vh-105px)] items-center justify-center overflow-hidden">
-      {/* Optimized Animated Background */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.06 }}
@@ -19,7 +18,7 @@ export default function Hero() {
       >
         <Image
           src={HeroBackground}
-          alt="Solar panels being professionally cleaned"
+          alt="Professional solar panel cleaning in Chico, California"
           fill
           preload
           sizes="100vw"
@@ -27,10 +26,8 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-slate-700/45" />
 
-      {/* Content */}
       <motion.div
         className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-14 text-center text-white"
         initial="hidden"
@@ -45,97 +42,67 @@ export default function Hero() {
           },
         }}
       >
-        {/* Welcome */}
-        <motion.h2
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 25,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.45,
-                ease: "easeOut",
-              },
-            },
-          }}
-          className="text-4xl font-bold tracking-[0.12em] drop-shadow-md md:text-6xl"
-        >
-          WELCOME TO
-        </motion.h2>
-
-        {/* Business Name */}
-        <motion.h1
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 30,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.5,
-                ease: "easeOut",
-              },
-            },
-          }}
-          className="mt-4 text-5xl font-extrabold tracking-[0.08em] drop-shadow-md md:text-7xl"
-        >
-          CHICO SOLAR CLEANERS
-        </motion.h1>
-
-        {/* Description */}
         <motion.p
           variants={{
-            hidden: {
-              opacity: 0,
-              y: 20,
-            },
+            hidden: { opacity: 0, y: 25 },
             visible: {
               opacity: 1,
               y: 0,
-              transition: {
-                duration: 0.45,
-                ease: "easeOut",
-              },
+              transition: { duration: 0.45, ease: "easeOut" },
             },
           }}
-          className="mt-8 max-w-4xl text-lg font-semibold italic leading-relaxed drop-shadow md:text-2xl"
+          className="text-xl font-bold tracking-[0.12em] drop-shadow-md md:text-2xl"
         >
-          We have 3 years of experience in cleaning solar panels and windows!
+          CHICO SOLAR CLEANERS
         </motion.p>
 
-        {/* Call Button */}
+        <motion.h1
+          id="hero-heading"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: "easeOut" },
+            },
+          }}
+          className="mt-4 max-w-5xl text-4xl font-extrabold leading-tight drop-shadow-md md:text-6xl"
+        >
+          Professional Solar Panel Cleaning in Chico, CA
+        </motion.h1>
+
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.45, ease: "easeOut" },
+            },
+          }}
+          className="mt-6 max-w-3xl text-lg font-semibold leading-relaxed drop-shadow md:text-xl"
+        >
+          Solar panel cleaning, bird proofing, and window cleaning for homes
+          throughout Chico and surrounding communities. Backed by 3 years of
+          experience and professional deionized-water cleaning equipment.
+        </motion.p>
+
         <motion.a
           href="tel:+17078907349"
           variants={{
-            hidden: {
-              opacity: 0,
-              scale: 0.94,
-              y: 15,
-            },
+            hidden: { opacity: 0, scale: 0.94, y: 15 },
             visible: {
               opacity: 1,
               scale: 1,
               y: 0,
-              transition: {
-                duration: 0.4,
-                ease: "easeOut",
-              },
+              transition: { duration: 0.4, ease: "easeOut" },
             },
           }}
-          whileHover={{
-            scale: 1.05,
-          }}
-          whileTap={{
-            scale: 0.97,
-          }}
-          className="mt-5 rounded border border-white px-6 py-4 font-bold transition-colors hover:bg-white hover:text-black"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-7 rounded border border-white px-6 py-4 font-bold transition-colors hover:bg-white hover:text-black"
         >
-          Contact Us Now!
+          Get a Free Estimate
         </motion.a>
       </motion.div>
     </section>

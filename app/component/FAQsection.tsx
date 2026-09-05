@@ -5,29 +5,44 @@ import { AnimatePresence, motion } from "motion/react";
 
 const faqData = [
   {
-    question: "How often should solar panels be cleaned?",
+    question: "How often should solar panels be cleaned in Chico, CA?",
     answer:
-      "It is recommended to clean solar panels at least twice a year, but this can vary based on your location and the amount of dust or debris they typically collect.",
+      "For many homes in Chico, cleaning solar panels about once or twice a year is a good starting point. Dust, pollen, bird droppings, nearby trees, wildfire ash, and other debris can make more frequent cleaning useful depending on your property.",
   },
   {
-    question: "Can dirty solar panels really affect their energy output?",
+    question: "Can dirty solar panels affect energy production?",
     answer:
-      "Yes, dirt and debris on solar panels can reduce their efficiency significantly. Regular cleaning ensures that they operate at optimal performance, which translates into better energy generation.",
+      "Yes. Dirt, dust, pollen, bird droppings, and other buildup can reduce the amount of sunlight reaching your solar panels. Keeping the surface clean can help your system operate as effectively as possible.",
   },
   {
-    question: "Are your cleaning methods safe for my solar panels?",
+    question: "Are your solar panel cleaning methods safe?",
     answer:
-      "Absolutely, we use gentle yet effective cleaning techniques and a specialized brush designed for use on solar panels. Our process will protect your solar panels while thoroughly removing dirt and grime.",
+      "Yes. We use purified deionized water and specialty brushes designed for solar panel cleaning. Our process avoids harsh cleaning chemicals and is designed to safely remove dirt and buildup without leaving mineral spots or residue.",
   },
   {
-    question: "How long does a typical solar panel cleaning take?",
+    question: "How long does solar panel cleaning usually take?",
     answer:
-      "The duration depends on the number of panels and their accessibility. Typically, the cleaning process can take anywhere from 45 minutes to two hours.",
+      "Most residential solar panel cleaning appointments take roughly 45 minutes to two hours. The exact time depends on the number of panels, roof layout, panel accessibility, and the amount of buildup.",
   },
   {
-    question: "Do I need to be at home when you provide the cleaning service?",
+    question: "Do I need to be home during the cleaning?",
     answer:
-      "While it's not necessary for you to be home, we require access to your property. Arrangements can be made to ensure the service is performed smoothly, whether or not you are present.",
+      "Usually not. As long as we have the necessary access to your property and any required gates, we can often complete the service while you are away. We can confirm access details with you before your appointment.",
+  },
+  {
+    question: "Do you provide solar panel cleaning outside of Chico?",
+    answer:
+      "Yes. Chico Solar Cleaners serves Chico and surrounding communities. Contact us with your location and we can let you know if your property is within our current service area.",
+  },
+  {
+    question: "Do you offer bird proofing for solar panels?",
+    answer:
+      "Yes. We provide solar panel bird proofing designed to help prevent birds from nesting underneath solar arrays. Protective barriers can help reduce nesting debris, droppings, and other problems caused by birds living under panels.",
+  },
+  {
+    question: "Do you also provide window cleaning?",
+    answer:
+      "Yes. In addition to solar panel cleaning and bird proofing, we offer residential window cleaning in Chico and surrounding communities. Contact us for a free estimate.",
   },
 ];
 
@@ -43,9 +58,12 @@ export default function FAQsection() {
   };
 
   return (
-    <section className="overflow-hidden bg-white px-8 py-16">
-      {/* Title */}
-      <motion.h1
+    <section
+      aria-labelledby="faq-heading"
+      className="overflow-hidden bg-white px-8 py-16"
+    >
+      <motion.h2
+        id="faq-heading"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -55,20 +73,26 @@ export default function FAQsection() {
         }}
         className="text-center text-3xl font-bold text-[#00b2e3]"
       >
-        Frequently Asked Questions
-      </motion.h1>
+        Solar Panel Cleaning FAQs
+      </motion.h2>
+
+      <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-700">
+        Answers to common questions about solar panel cleaning, bird proofing,
+        and exterior cleaning services in Chico, California.
+      </p>
 
       <div className="mx-auto grid max-w-[1500px] grid-cols-1 items-start gap-8 px-4 py-8 md:grid-cols-2">
         {faqData.map((item, index) => {
           const isLast = index === faqData.length - 1;
           const isTotalOdd = faqData.length % 2 === 1;
           const isFullSpan = isLast && isTotalOdd;
-
           const isOpen = openIndexes.includes(index);
+
+          const answerId = `faq-answer-${index}`;
 
           return (
             <motion.div
-              key={index}
+              key={item.question}
               initial={{
                 opacity: 0,
                 y: 30,
@@ -91,26 +115,30 @@ export default function FAQsection() {
               whileHover={{
                 scale: 1.01,
               }}
-              onClick={() => toggle(index)}
               className={`
-                flex min-h-[75px] w-full self-start cursor-pointer flex-col
-                overflow-hidden rounded-[10px] border border-black
-                bg-[#111] text-white md:w-3/4
+                flex w-full self-start flex-col overflow-hidden rounded-[10px]
+                border border-black bg-[#111] text-white md:w-3/4
 
                 ${
                   isFullSpan
                     ? "md:col-span-2 md:mx-auto md:max-w-[600px]"
                     : index % 2 === 0
-                    ? "md:justify-self-end"
-                    : "md:justify-self-start"
+                      ? "md:justify-self-end"
+                      : "md:justify-self-start"
                 }
               `}
             >
-              {/* Question */}
-              <div className="flex min-h-[75px] items-center justify-between bg-black px-6 py-4 font-semibold text-white">
-                <strong>{item.question}</strong>
+              <button
+                type="button"
+                onClick={() => toggle(index)}
+                aria-expanded={isOpen}
+                aria-controls={answerId}
+                className="flex min-h-[75px] w-full items-center justify-between bg-black px-6 py-4 text-left font-semibold text-white"
+              >
+                <span>{item.question}</span>
 
                 <motion.span
+                  aria-hidden="true"
                   animate={{
                     rotate: isOpen ? 180 : 0,
                   }}
@@ -122,12 +150,12 @@ export default function FAQsection() {
                 >
                   ▼
                 </motion.span>
-              </div>
+              </button>
 
-              {/* Answer */}
               <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
+                    id={answerId}
                     initial={{
                       height: 0,
                       opacity: 0,
@@ -153,7 +181,7 @@ export default function FAQsection() {
                       transition={{
                         duration: 0.25,
                       }}
-                      className="px-6 py-4 text-[0.95rem]"
+                      className="px-6 py-4 text-[0.95rem] leading-6"
                     >
                       <p>{item.answer}</p>
                     </motion.div>

@@ -1,5 +1,5 @@
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -10,24 +10,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://chicosolarcleaners.com"),
+
   title: {
-    default: "Chico Solar Cleaners",
+    default: "Solar Panel Cleaning in Chico, CA | Chico Solar Cleaners",
     template: "%s | Chico Solar Cleaners",
   },
+
   description:
-    "Professional solar panel cleaning, bird proofing, and window cleaning services in Chico and surrounding communities.",
-  keywords: [
-    "solar panel cleaning",
-    "solar cleaning Chico",
-    "bird proofing solar panels",
-    "window cleaning Chico",
-  ],
+    "Professional solar panel cleaning, bird proofing, and window cleaning in Chico, CA and surrounding communities. Restore your panels' performance and keep your property looking clean.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Chico Solar Cleaners",
+    title: "Solar Panel Cleaning in Chico, CA | Chico Solar Cleaners",
     description:
-      "Solar panel cleaning, bird proofing, and window cleaning in Chico and surrounding communities.",
+      "Professional solar panel cleaning, bird proofing, and window cleaning in Chico, CA and surrounding communities.",
+    url: "https://chicosolarcleaners.com",
+    siteName: "Chico Solar Cleaners",
     type: "website",
     locale: "en_US",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -38,9 +47,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
-      <Analytics />
-      <SpeedInsights />
+      <body className={`${inter.className} antialiased`}>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

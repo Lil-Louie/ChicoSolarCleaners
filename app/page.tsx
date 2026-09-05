@@ -1,10 +1,7 @@
-'use client'
-
 import Header from "@/app/component/Header";
-import Hero from "@/app/component/Hero"
+import Hero from "@/app/component/Hero";
 import Carousel from "@/app/component/Carousel";
 import ServicesRows from "@/app/component/Services_rows";
-import Reviews from "@/app/component/Reviews";
 import FAQSection from "@/app/component/FAQsection";
 import Footer from "@/app/component/Footer";
 
@@ -15,14 +12,8 @@ export default function HomePage() {
 
       <main>
         <section
-          aria-label="Solar panel cleaning introduction"
-          className="overflow-hidden"
-        >
-        </section>
-
-        <section
-          id="Hero"
-          aria-labelledby="Hero-heading"
+          id="hero"
+          aria-labelledby="hero-heading"
           className="scroll-mt-24"
         >
           <Hero />
@@ -37,18 +28,11 @@ export default function HomePage() {
         </section>
 
         <section
-          id="Carousel"
-          aria-labelledby="Carousel-heading"
+          id="gallery"
+          aria-labelledby="gallery-heading"
           className="scroll-mt-24"
         >
           <Carousel />
-        </section>
-
-        <section
-          id="reviews"
-          aria-labelledby="reviews-heading"
-          className="scroll-mt-24"
-        >
         </section>
 
         <section

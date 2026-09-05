@@ -6,14 +6,14 @@ import PanelPhoto from "@/public/carouselPhotos/Car_1.jpeg";
 import BirdProofing from "@/public/images/BirdProofing.jpeg";
 import { motion } from "motion/react";
 
-export default function Services() {
+export default function ServicesRows() {
   return (
     <section
       id="pricing"
       className="overflow-hidden bg-black px-6 py-12 md:px-8"
     >
-      {/* Section Title */}
-      <motion.h1
+      <motion.h2
+        id="services-heading"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -23,8 +23,8 @@ export default function Services() {
         }}
         className="mb-8 text-center text-3xl font-bold text-[#00b2e3]"
       >
-        Services
-      </motion.h1>
+        Solar Panel Cleaning & Exterior Cleaning Services
+      </motion.h2>
 
       <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
         {/* Solar Panel Cleaning */}
@@ -38,7 +38,6 @@ export default function Services() {
           }}
           className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
         >
-          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,17 +50,20 @@ export default function Services() {
             className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10"
           >
             <h3 className="mb-4 text-[1.7rem] font-bold text-[#00b2e3]">
-              Expert Residential Solar Panel Cleaning
+              Residential Solar Panel Cleaning in Chico
             </h3>
 
             <p className="mb-5 text-[1.1rem] leading-7 text-black">
-              We employ the safest and most effective method currently
-              available for cleaning solar panels. Our approach is entirely
-              free of chemicals, utilizing deionized water filtration along
-              with specialty bristled brushes specifically crafted for solar
-              panel maintenance. This technique guarantees adherence to all
-              warranty stipulations and yields outstanding results, enabling
-              your solar system to function at peak efficiency.
+              Keep your solar panels clean and performing their best with
+              professional solar panel cleaning in Chico, CA. We use purified
+              deionized water and specialty solar-safe brushes to remove dust,
+              pollen, dirt, bird droppings, and other buildup without harsh
+              chemicals.
+            </p>
+
+            <p className="mb-5 text-[1.1rem] leading-7 text-black">
+              Our cleaning process is designed to be safe for residential solar
+              systems while leaving panels clean and streak-free.
             </p>
 
             <p className="text-[1.1rem] text-black">
@@ -71,7 +73,6 @@ export default function Services() {
             </p>
           </motion.div>
 
-          {/* Image */}
           <div className="relative h-[320px] w-full overflow-hidden md:h-auto md:w-1/2">
             <motion.div
               initial={{ opacity: 0, scale: 1.05, x: 25 }}
@@ -86,8 +87,9 @@ export default function Services() {
             >
               <Image
                 src={PanelPhoto}
-                alt="Solar Panel Cleaning"
+                alt="Residential solar panel cleaning in Chico, CA"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
@@ -105,7 +107,6 @@ export default function Services() {
           }}
           className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
         >
-          {/* Image - first on desktop */}
           <div className="relative h-[320px] w-full overflow-hidden md:order-1 md:h-auto md:w-1/2">
             <motion.div
               initial={{ opacity: 0, scale: 1.05, x: -25 }}
@@ -120,14 +121,14 @@ export default function Services() {
             >
               <Image
                 src={BirdProofing}
-                alt="Bird Proofing"
+                alt="Bird proofing installed around residential solar panels"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
           </div>
 
-          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -144,22 +145,18 @@ export default function Services() {
             </h3>
 
             <p className="mb-5 text-[1.1rem] leading-7 text-black">
-              Don’t let birds compromise the efficiency and longevity of your
-              solar panels! Our expert bird-proofing services are designed to
-              safeguard your solar investment from nesting debris, droppings,
-              and damage caused by persistent pests.
+              Protect your solar panels from nesting birds, droppings, debris,
+              and damage with professional solar panel bird proofing.
             </p>
 
             <p className="mb-5 text-[1.1rem] leading-7 text-black">
-              Our team uses durable, eco-friendly solutions to create an
-              effective barrier around your solar panels without harming
-              wildlife. From stainless steel mesh to custom deterrents, we
-              provide a seamless, non-invasive installation to ensure lasting
-              protection.
+              We install durable protective barriers around the perimeter of
+              your solar array to help keep birds from nesting underneath your
+              panels while maintaining a clean, low-profile appearance.
             </p>
 
             <p className="text-[1.1rem] text-black">
-              <strong>*Prices Starting at $6.50 Per Linear Foot</strong>
+              <strong>Prices starting at $6.50 per linear foot</strong>
             </p>
           </motion.div>
         </motion.div>
@@ -175,7 +172,6 @@ export default function Services() {
           }}
           className="flex w-full flex-col overflow-hidden rounded-lg border border-[#ddd] bg-white shadow-sm md:min-h-[470px] md:flex-row"
         >
-          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -188,21 +184,21 @@ export default function Services() {
             className="flex flex-col justify-center p-6 text-center md:w-1/2 md:p-10"
           >
             <h3 className="mb-4 text-[1.7rem] font-bold text-[#00b2e3]">
-              Window Cleaning
+              Window Cleaning in Chico
             </h3>
 
             <p className="mb-5 text-[1.1rem] leading-7 text-black">
-              Keep your windows looking clean, clear, and bright with our
-              professional window cleaning service. We remove dirt, buildup,
-              and grime to improve the appearance of your home.
+              Keep your windows clean, clear, and bright with professional
+              window cleaning in Chico. We remove dirt, dust, buildup, and grime
+              to improve the appearance of your home and give you a clearer
+              view.
             </p>
 
             <p className="text-[1.1rem] text-black">
-              <strong>Call to get an estimate</strong>
+              <strong>Call for a free estimate</strong>
             </p>
           </motion.div>
 
-          {/* Image */}
           <div className="relative h-[320px] w-full overflow-hidden md:h-auto md:w-1/2">
             <motion.div
               initial={{ opacity: 0, scale: 1.05, x: 25 }}
@@ -217,8 +213,9 @@ export default function Services() {
             >
               <Image
                 src={WindowPhoto}
-                alt="Window Cleaning"
+                alt="Professional residential window cleaning in Chico"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
