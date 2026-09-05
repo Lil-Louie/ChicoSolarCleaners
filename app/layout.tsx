@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://chicosolarcleaners.com"),
+  metadataBase: new URL("https://www.chicosolarcleaners.com"),
 
   title: {
     default: "Solar Panel Cleaning in Chico, CA | Chico Solar Cleaners",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   description:
     "Professional solar panel cleaning, bird proofing, and window cleaning in Chico, CA and surrounding communities. Restore your panels' performance and keep your property looking clean.",
 
-  alternates: {
-    canonical: "/",
-  },
+alternates: {
+  canonical: "https://www.chicosolarcleaners.com",
+},
 
   openGraph: {
     title: "Solar Panel Cleaning in Chico, CA | Chico Solar Cleaners",
